@@ -50,7 +50,8 @@ class TrainDataSet(Dataset):
         return len(self.data)
 ```
 
-Model Architecture: In the below summary, The output of fc2 is 10 channels, and I returned it for mnist prediction, Also added with random input and performed two fully connected layers and returned 19 channels.  
+### Model Architecture: 
+In the below summary, The output of fc2 is 10 channels, and I returned it for mnist prediction, Also added with random input and performed two fully connected layers and returned 19 channels.  
 
 ```
 Network(
@@ -66,7 +67,6 @@ Network(
 ```
 
 ```python 
-
 class Network(nn.Module):
 
     def __init__(self):
@@ -105,17 +105,21 @@ class Network(nn.Module):
         # x = x.reshape(1, -1)
         x = self.fc1(x)
         x = F.relu(x)
+        # Now we have 10 channels and return for mnist and add with random  
         mnist_output = self.fc2(x)
+        # Add mnist_output+random
         x = mnist_output+random
+        # Expand channel to 20 
         x = self.fc3(x)
         x = F.relu(x)
+        # Maximum value we get by adding label and random is 19. So made the output as 19 channel 
         x = self.out(x)
         mnist_output = F.softmax(mnist_output, dim=1)
         x = F.softmax(x, dim=1)
         return mnist_output, x
-        
 ``` 
-Result Evaluation: 
+
+### Result Evaluation: 
 
 For getting the number of correct values, I first extracted the number from prediction using argmax and equate it with truth data, and divided it with the total input 
 
@@ -127,12 +131,12 @@ def get_num_correct(images, labels, random, random_label):
 ```
 **After training my model for 80 epoch, I got 99.8% accuracy for mnist 47.0% accuracy for random number. So my final model accuracy is 73.4%**
 
-Loss Function: 
+### Loss Function: 
 
 I used Cross Entropy because it is used for classification tasks which measure of the difference between the predicted probability distribution and the true probability distribution. 
 
 
-Training Logs
+### Training Logs
 
 ```
 epoch: 1 MNIST {Correct: 53744 Accuracy: 0.896 Loss: 470.44 } RANDOM {Correct: 5750 Accuracy: 0.096 Loss: 874.68 } Total {Correct: 59494 Accuracy: 0.496 loss: 1345.12 }

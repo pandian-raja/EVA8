@@ -117,10 +117,7 @@ class Network(nn.Module):
 ``` 
 Result Evaluation: 
 
-	For getting the number of correct values, I first extracted the number from prediction using argmax and equate it with truth data, and divided it with the total input 
-
-After training my model for 80 epoch, I got 99.8% accuracy for mnist 47.0% accuracy for random number. So my final model accuracy is 73.4%
-
+For getting the number of correct values, I first extracted the number from prediction using argmax and equate it with truth data, and divided it with the total input 
 
 ```
 def get_num_correct(images, labels, random, random_label):
@@ -128,7 +125,7 @@ def get_num_correct(images, labels, random, random_label):
     return images.argmax(dim=1).eq(labels).sum().item(), random.argmax(dim=1).eq(random_label).sum().item()
 
 ```
-
+**After training my model for 80 epoch, I got 99.8% accuracy for mnist 47.0% accuracy for random number. So my final model accuracy is 73.4%**
 
 Loss Function: 
 

@@ -2,7 +2,7 @@
 
 ![Task](https://raw.githubusercontent.com/pandian-raja/EVA8/main/Resources/S3/s3_part_1.png)
 
-[Excel Sheet](/NNBackpropgation.xlsx)
+[Excel Sheet](NNBackpropgation.xlsx)
 ![Screenshot](https://raw.githubusercontent.com/pandian-raja/EVA8/main/Resources/S3/backpropgation_output.png)
 
 

@@ -5,7 +5,7 @@
 
 ---
 
-## [Colab Link](EVA4_Session_3.ipynb)
+## [Colab Link](Session_3.ipynb)
 
 ##  Model Summary: 
 
